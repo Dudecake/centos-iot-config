@@ -1,0 +1,116 @@
+include: centos-common-ostree.yaml
+ref: centos/8/${basearch}/iot
+rojig:
+  name: centos-iot
+  summary: "Centos IoT base image"
+  license: MIT
+packages:
+  - zsh
+  - zsh-syntax-highlighting
+  - centos-release-gluster7
+  - centos-release-opstools
+  - epel-release
+  - freeipa-client
+  - keepalived
+  - ncdu
+  # Cockpit
+  - cockpit-networkmanager
+  - cockpit-machines
+  # Install of ovirt fails
+  # - cockpit-ovirt-dashboard
+  - cockpit-podman
+  - cockpit-storaged
+  # Convenient hooks for Podman/Docker
+  - oci-systemd-hook
+  - oci-umount
+  # Automatic decryption on boot
+  - clevis-dracut
+  # Ovirt
+  # - ovirt-engine
+  - virtio-win
+  - virt-install
+  - virt-top
+  - libvirt-daemon-kvm
+  - qemu-kvm
+  - libguestfs-tools
+  - python3-libguestfs
+  # Kubernetes
+  - cri-o
+  - conntrack-tools
+  # Storage
+  - glusterfs
+  - targetcli
+  - nfs-utils
+  - zfs
+  - zfs-dracut
+  - rubygems
+  # GPU support
+  - rocm-smi
+  # - rocminfo
+  - rocm-opencl
+
+units:
+  - rpm-ostreed-automatic.timer
+  - cockpit.socket
+  - ostree-remount.service
+  - crio.service
+  - io.podman.socket
+
+add-files:
+  [
+    ["kubectl", "/usr/bin/kubectl"],
+    ["kube-scheduler.docker_tag", "/usr/bin/kube-scheduler.docker_tag"],
+    ["kube-scheduler", "/usr/bin/kube-scheduler"],
+    ["kube-proxy.tar", "/usr/bin/kube-proxy.tar"],
+    [
+      "kube-controller-manager.docker_tag",
+      "/usr/bin/kube-controller-manager.docker_tag",
+    ],
+    ["apiextensions-apiserver", "/usr/bin/apiextensions-apiserver"],
+    ["kube-apiserver.tar", "/usr/bin/kube-apiserver.tar"],
+    ["kube-proxy.docker_tag", "/usr/bin/kube-proxy.docker_tag"],
+    ["kube-proxy", "/usr/bin/kube-proxy"],
+    ["kubelet", "/usr/bin/kubelet"],
+    ["kube-apiserver.docker_tag", "/usr/bin/kube-apiserver.docker_tag"],
+    ["kube-controller-manager", "/usr/bin/kube-controller-manager"],
+    ["kube-scheduler.tar", "/usr/bin/kube-scheduler.tar"],
+    ["kube-controller-manager.tar", "/usr/bin/kube-controller-manager.tar"],
+    ["kube-apiserver", "/usr/bin/kube-apiserver"],
+    ["mounter", "/usr/bin/mounter"],
+    ["kubeadm", "/usr/bin/kubeadm"],
+    ["kubelet.service", "/etc/systemd/system/kubelet.service"],
+    ["crictl", "/usr/bin/crictl"],
+    ["initialize-kubernetes.sh", "/usr/bin/initialize-kubernetes.sh"],
+  ]
+
+default-target: multi-user.target
+# readonly-executables: true
+# TODO: enable modules pki-deps, postgresql:12 and javapackages-tools
+repos:
+  # CentOS repos
+  - AppStream
+  - BaseOS
+  - PowerTools
+  - extras
+  - epel
+  # ZFS repo
+  # - zfs-kmod
+  - zfs
+  # OVirt
+  - centos-gluster7
+  - centos-opstools
+  - virtio-win-stable
+  # - ovirt-4.4
+  # - ovirt-4.4-copr:copr.fedorainfracloud.org:sbonazzo:EL8_collection
+  # - ovirt-4.4-copr:copr.fedorainfracloud.org:sac:gluster-ansible
+  # - ovirt-4.4-copr:copr.fedorainfracloud.org:mdbarroso:ovsdbapp
+  # - ovirt-4.4-copr:copr.fedorainfracloud.org:nmstate:nmstate-0.2
+  # - ovirt-4.4-copr:copr.fedorainfracloud.org:networkmanager:NetworkManager-1.22
+  # - ovirt-4.4-advanced-virtualization
+  # - ovirt-4.4-centos-ovirt44
+  # Kubernetes
+  - copr:copr.fedorainfracloud.org:rhcontainerbot:container-selinux
+  - devel_kubic_libcontainers_stable
+  - devel_kubic_libcontainers_stable_cri-o_1.18_1.18.1
+  # GPU support
+  - ROCm

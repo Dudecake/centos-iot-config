@@ -1,0 +1,12 @@
+# CentOS-Gluster-7.repo
+#
+# Please see http://wiki.centos.org/SpecialInterestGroup/Storage for more
+# information
+
+[centos-gluster7]
+name=CentOS-$releasever - Gluster 7
+#mirrorlist=http://mirrorlist.centos.org?arch=$basearch&release=$releasever&repo=storage-gluster-7
+baseurl=http://mirror.centos.org/centos/$releasever/storage/$basearch/gluster-7/
+gpgcheck=1
+enabled=1
+gpgkey=https://www.centos.org/keys/RPM-GPG-KEY-CentOS-SIG-Storage

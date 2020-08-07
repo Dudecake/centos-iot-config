@@ -1,0 +1,66 @@
+[ovirt-4.4-copr:copr.fedorainfracloud.org:sbonazzo:EL8_collection]
+name=Copr repo for EL8_collection owned by sbonazzo
+baseurl=https://copr-be.cloud.fedoraproject.org/results/sbonazzo/EL8_collection/epel-8-$basearch/
+type=rpm-md
+gpgcheck=1
+gpgkey=https://copr-be.cloud.fedoraproject.org/results/sbonazzo/EL8_collection/pubkey.gpg
+repo_gpgcheck=0
+enabled=1
+enabled_metadata=1
+
+[ovirt-4.4-copr:copr.fedorainfracloud.org:sac:gluster-ansible]
+name=Copr repo for gluster-ansible owned by sac
+baseurl=https://copr-be.cloud.fedoraproject.org/results/sac/gluster-ansible/epel-8-x86_64/
+type=rpm-md
+gpgcheck=1
+gpgkey=https://copr-be.cloud.fedoraproject.org/results/sac/gluster-ansible/pubkey.gpg
+repo_gpgcheck=0
+enabled=1
+enabled_metadata=1
+
+[ovirt-4.4-copr:copr.fedorainfracloud.org:mdbarroso:ovsdbapp]
+name=Copr repo for ovsdbapp owned by mdbarroso
+baseurl=https://copr-be.cloud.fedoraproject.org/results/mdbarroso/ovsdbapp/epel-8-$basearch/
+type=rpm-md
+gpgcheck=1
+gpgkey=https://copr-be.cloud.fedoraproject.org/results/mdbarroso/ovsdbapp/pubkey.gpg
+repo_gpgcheck=0
+enabled=1
+enabled_metadata=1
+
+[ovirt-4.4-copr:copr.fedorainfracloud.org:nmstate:nmstate-0.2]
+name=Copr repo for nmstate-stable owned by nmstate
+baseurl=https://copr-be.cloud.fedoraproject.org/results/nmstate/nmstate-0.2/epel-8-$basearch/
+type=rpm-md
+gpgcheck=1
+gpgkey=https://copr-be.cloud.fedoraproject.org/results/nmstate/nmstate-0.2/pubkey.gpg
+repo_gpgcheck=0
+enabled=1
+enabled_metadata=1
+
+[ovirt-4.4-copr:copr.fedorainfracloud.org:networkmanager:NetworkManager-1.22]
+name=Copr repo for NetworkManager-1.22 owned by networkmanager
+baseurl=https://copr-be.cloud.fedoraproject.org/results/networkmanager/NetworkManager-1.22/epel-8-$basearch/
+type=rpm-md
+gpgcheck=1
+gpgkey=https://copr-be.cloud.fedoraproject.org/results/networkmanager/NetworkManager-1.22/pubkey.gpg
+repo_gpgcheck=0
+enabled=1
+enabled_metadata=1
+
+[ovirt-4.4-advanced-virtualization]
+name=Advanced Virtualization packages for $basearch
+#mirrorlist=http://mirrorlist.centos.org/?arch=$basearch&release=8&repo=virt-advanced-virtualization
+baseurl=http://mirror.centos.org/centos/8/virt/$basearch/advanced-virtualization/
+enabled=1
+gpgcheck=1
+gpgkey=https://www.centos.org/keys/RPM-GPG-KEY-CentOS-SIG-Virtualization
+module_hotfixes=1
+
+[ovirt-4.4-centos-ovirt44]
+name=CentOS-8 - oVirt 4.4
+#mirrorlist=http://mirrorlist.centos.org/?arch=$basearch&release=8&repo=virt-ovirt-44
+baseurl=http://mirror.centos.org/centos/8/virt/$basearch/ovirt-44/
+enabled=1
+gpgcheck=1
+gpgkey=https://www.centos.org/keys/RPM-GPG-KEY-CentOS-SIG-Virtualization

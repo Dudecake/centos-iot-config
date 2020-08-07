@@ -1,0 +1,13 @@
+# CentOS-OpsTools.repo
+#
+# Please see http://wiki.centos.org/SpecialInterestGroup/OpsTools for more
+# information
+
+[centos-opstools]
+name=CentOS-$releasever - OpsTools - collectd
+mirrorlist=http://mirrorlist.centos.org/?arch=$basearch&release=$releasever&repo=opstools-collectd-5
+#baseurl=http://mirror.centos.org/centos/$releasever/opstools/$basearch/collectd-5/
+gpgcheck=1
+enabled=1
+skip_if_unavailable=1
+gpgkey=https://www.centos.org/keys/RPM-GPG-KEY-CentOS-SIG-OpsTools
