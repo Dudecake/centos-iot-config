@@ -115,7 +115,6 @@ packages:
   - man-pages
   - mdadm
   - mesa-dri-drivers
-  - mesa-vulkan-drivers
   - mlocate
   - mtr
   - nfs-utils
@@ -185,3 +184,5 @@ packages:
   - xorg-x11-xauth
   - xorg-x11-xinit
   - zip
+packages-x86_64:
+  - mesa-vulkan-drivers

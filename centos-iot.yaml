@@ -13,6 +13,7 @@ packages:
   - freeipa-client
   - keepalived
   - ncdu
+  - wireguard-tools
   # Cockpit
   - cockpit-networkmanager
   - cockpit-machines
@@ -44,6 +45,7 @@ packages:
   - zfs
   - zfs-dracut
   - rubygems
+packages-x86_64:
   # GPU support
   - rocm-smi
   # - rocminfo
@@ -71,6 +73,7 @@ add-files:
     ["kube-proxy.docker_tag", "/usr/bin/kube-proxy.docker_tag"],
     ["kube-proxy", "/usr/bin/kube-proxy"],
     ["kubelet", "/usr/bin/kubelet"],
+    ["kube-aggregator", "/usr/bin/kube-aggregator"],
     ["kube-apiserver.docker_tag", "/usr/bin/kube-apiserver.docker_tag"],
     ["kube-controller-manager", "/usr/bin/kube-controller-manager"],
     ["kube-scheduler.tar", "/usr/bin/kube-scheduler.tar"],
@@ -111,6 +114,6 @@ repos:
   # Kubernetes
   - copr:copr.fedorainfracloud.org:rhcontainerbot:container-selinux
   - devel_kubic_libcontainers_stable
-  - devel_kubic_libcontainers_stable_cri-o_1.18_1.18.1
+  - devel_kubic_libcontainers_stable_cri-o_1.18_1.18.3
   # GPU support
   - ROCm

@@ -1,6 +1,7 @@
 apiextensions-apiserver
 crictl
 crictl-*-linux-*.tar.gz
+kube-aggregator
 kube-apiserver
 kube-apiserver.docker_tag
 kube-apiserver.tar
@@ -18,3 +19,4 @@ kubectl
 kubelet
 kubernetes-server-linux-*-*.tar.gz
 mounter
+/*/**/LICENSE
