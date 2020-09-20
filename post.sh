@@ -28,8 +28,6 @@ for x in /usr/sbin/glibc_post_upgrade.*; do
 done
 
 sed -i 's/#AutomaticUpdatePolicy=.*/AutomaticUpdatePolicy=stage/' /etc/rpm-ostreed.conf
-KERNEL="$(rpm -q kernel)"
-dkms install zfs/$(rpm -q zfs --queryformat '%{VERSION}') -k ${KERNEL#*-}
 printf "%s\n" vfio vfio_iommu_type1 vfio_pci zfs > /etc/modules-load.d/99-centos-iot.conf
 
 echo >> 'net.ipv4.ip_forward = 1' > /etc/sysctl.d/99-sysctl.conf

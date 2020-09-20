@@ -5,6 +5,8 @@ rojig:
   summary: "Centos IoT base image"
   license: MIT
 packages:
+  - bsdtar
+  - nano
   - zsh
   - zsh-syntax-highlighting
   - centos-release-gluster7
@@ -33,6 +35,14 @@ packages:
   - virt-top
   - libvirt-daemon-kvm
   - qemu-kvm
+  # - qemu-system-aarch64
+  # - qemu-system-arm
+  # - qemu-system-ppc
+  # - qemu-system-riscv
+  # - qemu-system-x86
+  # - edk2-aarch64
+  # - edk2-arm
+  # - edk2-ovmf
   - libguestfs-tools
   - python3-libguestfs
   # Kubernetes
@@ -50,6 +60,8 @@ packages-x86_64:
   - rocm-smi
   # - rocminfo
   - rocm-opencl
+  # - clinfo
+  # - radeontop
 
 units:
   - rpm-ostreed-automatic.timer
@@ -84,6 +96,7 @@ add-files:
     ["kubelet.service", "/etc/systemd/system/kubelet.service"],
     ["crictl", "/usr/bin/crictl"],
     ["initialize-kubernetes.sh", "/usr/bin/initialize-kubernetes.sh"],
+    ["rocm.sh", "/etc/profile.d/rocm.sh"],
   ]
 
 default-target: multi-user.target
