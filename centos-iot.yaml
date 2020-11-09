@@ -40,9 +40,7 @@ packages:
   # - qemu-system-ppc
   # - qemu-system-riscv
   # - qemu-system-x86
-  # - edk2-aarch64
   # - edk2-arm
-  # - edk2-ovmf
   - libguestfs-tools
   - python3-libguestfs
   # Kubernetes
@@ -55,11 +53,14 @@ packages:
   - zfs
   - zfs-dracut
   - rubygems
+packages-aarch64:
+  - edk2-aarch64
 packages-x86_64:
+  - edk2-ovmf
   # GPU support
-  - rocm-smi
+  # - rocm-smi
   # - rocminfo
-  - rocm-opencl
+  # - rocm-opencl
   # - clinfo
   # - radeontop
 
@@ -96,9 +97,9 @@ add-files:
     ["kubelet.service", "/etc/systemd/system/kubelet.service"],
     ["crictl", "/usr/bin/crictl"],
     ["initialize-kubernetes.sh", "/usr/bin/initialize-kubernetes.sh"],
-    ["rocm.sh", "/etc/profile.d/rocm.sh"],
   ]
 
+# ["rocm.sh", "/etc/profile.d/rocm.sh"],
 default-target: multi-user.target
 # readonly-executables: true
 # TODO: enable modules pki-deps, postgresql:12 and javapackages-tools
@@ -115,7 +116,7 @@ repos:
   # OVirt
   - centos-gluster7
   - centos-opstools
-  - virtio-win-stable
+  - virtio-win-latest
   # - ovirt-4.4
   # - ovirt-4.4-copr:copr.fedorainfracloud.org:sbonazzo:EL8_collection
   # - ovirt-4.4-copr:copr.fedorainfracloud.org:sac:gluster-ansible
@@ -129,4 +130,4 @@ repos:
   - devel_kubic_libcontainers_stable
   - devel_kubic_libcontainers_stable_cri-o_1.18_1.18.3
   # GPU support
-  - ROCm
+  # - ROCm

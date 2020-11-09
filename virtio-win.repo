@@ -4,14 +4,14 @@
 [virtio-win-stable]
 name=virtio-win builds roughly matching what was shipped in latest RHEL
 baseurl=http://fedorapeople.org/groups/virt/virtio-win/repo/stable
-enabled=1
+enabled=0
 skip_if_unavailable=1
 gpgcheck=0
 
 [virtio-win-latest]
 name=Latest virtio-win builds
 baseurl=http://fedorapeople.org/groups/virt/virtio-win/repo/latest
-enabled=0
+enabled=1
 skip_if_unavailable=1
 gpgcheck=0
 
