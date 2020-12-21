@@ -8,26 +8,26 @@ fi
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" > /dev/null && pwd )"
 KEY=${KEY:-920498D5E1E4D38C258A1AE623FE6D6C9114BC76}
 DIST_NAME=iot
-REPO_PATH=${REPO_PATH:-/var/lib/ostree/iot}
 DIST_PATH=${DIST_PATH:-/var/lib/ostree/dist}
+CACHE_PATH=${CACHE_PATH:-/var/cache/ostree}
 MACHINE="$(uname -m)"
-ZFS_VERSION="${ZFS_VERSION:-0.8.5-1}"
+ZFS_VERSION="${ZFS_VERSION:-0.8.6-1}"
 UPDATE_REPO=${UPDATE_REPO:-0}
 
 set -e
-for dir in "${REPO_PATH}" "${DIST_PATH}" "/var/cache/ostree/${DIST_NAME}"; do
+for dir in "${DIST_PATH}/" "${CACHE_PATH}/zfs" "${CACHE_PATH}/${DIST_NAME}/tmp"; do
   if [[ ! -d ${dir} ]]; then
     mkdir -p ${dir}
   fi
 done
-pushd /var/cache/ostree/zfs > /dev/null
-if [[ ! -f zfs-kmod-${ZFS_VERSION}.el8.src.rpm ]]; then
+pushd "${CACHE_PATH}/zfs" > /dev/null
+if [[ ! -f zfs-dkms-${ZFS_VERSION}.el8.src.rpm ]]; then
   UPDATE_REPO=1
   rm -rf ./*
-  curl -L --remote-name-all http://download.zfsonlinux.org/epel/8.2/SRPMS/zfs{,-kmod}-${ZFS_VERSION}.el8.src.rpm
+  curl -L --remote-name-all http://download.zfsonlinux.org/epel/8.3/SRPMS/zfs{,-dkms}-${ZFS_VERSION}.el8.src.rpm
 fi
-if [[ ! -f zfs-dracut-${ZFS_VERSION}.el8.noarch.rpm || ${UPDATE_REPO} ]]; then
-  mock -r centos-8-${MACHINE} rebuild zfs{,-kmod}-${ZFS_VERSION}.*.src.rpm --resultdir . --define='kernel_module_package_buildreqs kernel-devel kernel-abi-whitelists redhat-rpm-config kernel-rpm-macros elfutils-libelf-devel kmod'
+if [[ ! -f zfs-${ZFS_VERSION}.el8.${MACHINE}.rpm || ${UPDATE_REPO} -ne 0 ]]; then
+  mock -r centos-8-${MACHINE} rebuild zfs{,-dkms}-${ZFS_VERSION}.*.src.rpm --resultdir .
   createrepo .
 fi
 popd > /dev/null
@@ -62,21 +62,14 @@ fi
 [[ ! -z ${DRYRUN} ]] && exit 0
 if [[ ! -d "${DIST_PATH}/tmp" ]]; then
   ostree init --repo="${DIST_PATH}" --mode=archive
-  [[ "${REPO_PATH}" = "${DIST_PATH}" ]] && NEW_REPO=1
-fi
-if [[ ! -d "${REPO_PATH}"/tmp ]]; then
-  ostree init --repo="${REPO_PATH}"
   NEW_REPO=1
 fi
-rm -rf ${REPO_PATH}/tmp/*.tmp
-rpm-ostree compose tree --repo="${REPO_PATH}" --workdir "${REPO_PATH}/tmp" "${DIR}/centos-iot.yaml"
-if [[ ! -z "${NEW_REPO}" ]]; then
-  ostree --repo="${REPO_PATH}" static-delta generate centos/8/${MACHINE}/${DIST_NAME}
+rm -rf ${DIST_PATH}/tmp/*.tmp
+rpm-ostree compose tree --repo="${DIST_PATH}" --workdir "${CACHE_PATH}/${DIST_NAME}/tmp" "${DIR}/centos-iot.yaml"
+if [[ -z "${NEW_REPO}" ]]; then
+  ostree --repo="${DIST_PATH}" static-delta generate centos/8/${MACHINE}/${DIST_NAME}
 fi
-#ostree --repo="${REPO_PATH}" gpg-sign centos/8/${MACHINE}/${DIST_NAME} ${KEY}
-if [[ "${REPO_PATH}" != "${DIST_PATH}" ]]; then
-  ostree --repo="${DIST_PATH}" pull-local "${REPO_PATH}"
-fi
+#ostree --repo="${DIST_PATH}" gpg-sign centos/8/${MACHINE}/${DIST_NAME} ${KEY}
 ostree --repo="${DIST_PATH}" summary -u
 # Deploy with
 # ostree remote add centos-iot http://${URL}/ostree/iot

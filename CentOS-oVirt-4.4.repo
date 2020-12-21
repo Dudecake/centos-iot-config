@@ -1,0 +1,18 @@
+# CentOS-oVirt-4.4.repo
+#
+# Please see http://wiki.centos.org/SpecialInterestGroup/Virtualization for more
+# information
+
+[centos-ovirt44]
+name=CentOS-$releasever - oVirt 4.4
+mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=virt-ovirt-44
+#baseurl=http://mirror.centos.org/$contentdir/$releasever/virt/$basearch/ovirt-44/
+gpgcheck=1
+enabled=1
+gpgkey=https://www.centos.org/keys/RPM-GPG-KEY-CentOS-SIG-Virtualization
+
+[centos-ovirt44-testing]
+name=CentOS-$releasever - oVirt 4.4 Testing
+baseurl=http://buildlogs.centos.org/centos/$releasever/virt/$basearch/ovirt-44/
+gpgcheck=0
+enabled=0
