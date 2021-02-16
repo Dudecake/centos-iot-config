@@ -8,10 +8,10 @@ fi
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" > /dev/null && pwd )"
 KEY=${KEY:-920498D5E1E4D38C258A1AE623FE6D6C9114BC76}
 DIST_NAME=iot
-DIST_PATH=${DIST_PATH:-/var/lib/ostree/dist}
+DIST_PATH=${DIST_PATH:-/srv/http/ckoomen.eu/ostree/iot}
 CACHE_PATH=${CACHE_PATH:-/var/cache/ostree}
 MACHINE="$(uname -m)"
-ZFS_VERSION="${ZFS_VERSION:-0.8.6-1}"
+ZFS_VERSION="${ZFS_VERSION:-2.0.3-1}"
 UPDATE_REPO=${UPDATE_REPO:-0}
 
 set -e
@@ -21,10 +21,10 @@ for dir in "${DIST_PATH}/" "${CACHE_PATH}/zfs" "${CACHE_PATH}/${DIST_NAME}/tmp";
   fi
 done
 pushd "${CACHE_PATH}/zfs" > /dev/null
-if [[ ! -f zfs-dkms-${ZFS_VERSION}.el8.src.rpm ]]; then
+if [[ ! -f zfs-dkms-${ZFS_VERSION}.fc33.src.rpm ]]; then
   UPDATE_REPO=1
-  rm -rf ./*
-  curl -L --remote-name-all http://download.zfsonlinux.org/epel/8.3/SRPMS/zfs{,-dkms}-${ZFS_VERSION}.el8.src.rpm
+  rm -rf ./zfs-*.src.rpm ./lib{nvpair,uutil,zfs,zpool}*.src.rpm ./python3-pyzfs*.src.rpm
+  curl -L --remote-name-all http://download.zfsonlinux.org/fedora/33/SRPMS/zfs{,-dkms}-${ZFS_VERSION}.fc33.src.rpm
 fi
 if [[ ! -f zfs-${ZFS_VERSION}.el8.${MACHINE}.rpm || ${UPDATE_REPO} -ne 0 ]]; then
   mock -r centos-8-${MACHINE} rebuild zfs{,-dkms}-${ZFS_VERSION}.*.src.rpm --resultdir .
@@ -62,9 +62,11 @@ fi
 [[ ! -z ${DRYRUN} ]] && exit 0
 if [[ ! -d "${DIST_PATH}/tmp" ]]; then
   ostree init --repo="${DIST_PATH}" --mode=archive
-  NEW_REPO=1
+  if [[ -f "${REPO_PATH}/refs/heads/centos/8/${MACHINE}/${DIST_NAME}" ]]; then
+    NEW_REPO=1
+  fi
 fi
-rm -rf ${DIST_PATH}/tmp/*.tmp
+rm -rf ${CACHE_PATH}/${DIST_NAME}/tmp/*.tmp
 rpm-ostree compose tree --repo="${DIST_PATH}" --workdir "${CACHE_PATH}/${DIST_NAME}/tmp" "${DIR}/centos-iot.yaml"
 if [[ -z "${NEW_REPO}" ]]; then
   ostree --repo="${DIST_PATH}" static-delta generate centos/8/${MACHINE}/${DIST_NAME}

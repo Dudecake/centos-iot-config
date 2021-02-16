@@ -6,15 +6,15 @@ rojig:
   license: MIT
 packages:
   - bsdtar
-  - bashtop
   - iotop
-  - nano
+  - micro
   - zsh
   - zsh-syntax-highlighting
   - centos-release-advanced-virtualization
   - centos-release-gluster8
+  # - centos-release-nfs-ganesha30
   - centos-release-opstools
-  - centos-release-ovirt44
+  # - centos-release-ovirt44
   - epel-release
   - freeipa-client
   - keepalived
@@ -23,8 +23,6 @@ packages:
   # Cockpit
   - cockpit-networkmanager
   - cockpit-machines
-  # Install of ovirt fails
-  # - cockpit-ovirt-dashboard
   - cockpit-podman
   - cockpit-storaged
   # Convenient hooks for Podman/Docker
@@ -34,11 +32,13 @@ packages:
   - clevis-dracut
   # Ovirt
   # - ovirt-engine
-  - cockpit-ovirt-dashboard
+  # - cockpit-ovirt-dashboard
   - virtio-win
   - virt-install
   - virt-top
   - libvirt-daemon-kvm
+  - libvirt-daemon-driver-storage-gluster
+  - libvirt-daemon-driver-storage-iscsi
   - qemu-kvm
   # - qemu-system-aarch64
   # - qemu-system-arm
@@ -52,10 +52,10 @@ packages:
   - conntrack-tools
   # Storage
   - glusterfs
+  - glusterfs-server
   - targetcli
   - nfs-utils
   - zfs
-  - zfs-dracut
   - rubygems
 packages-aarch64:
   - edk2-aarch64
@@ -122,18 +122,18 @@ repos:
   # OVirt
   - centos-advanced-virtualization
   - centos-gluster8
-  - centos-ovirt44
+  # - centos-ovirt44
   - centos-opstools
   - virtio-win-latest
-  - ovirt-4.4
-  - ovirt-4.4-copr:copr.fedorainfracloud.org:sbonazzo:EL8_collection
-  - ovirt-4.4-copr:copr.fedorainfracloud.org:sac:gluster-ansible
-  - ovirt-4.4-copr:copr.fedorainfracloud.org:mdbarroso:ovsdbapp
-  - ovirt-4.4-copr:copr.fedorainfracloud.org:nmstate:nmstate-0.3
-  - ovirt-4.4-copr:copr.fedorainfracloud.org:networkmanager:NetworkManager-1.26
+  # - ovirt-4.4
+  # - ovirt-4.4-copr:copr.fedorainfracloud.org:sbonazzo:EL8_collection
+  # - ovirt-4.4-copr:copr.fedorainfracloud.org:sac:gluster-ansible
+  # - ovirt-4.4-copr:copr.fedorainfracloud.org:mdbarroso:ovsdbapp
+  # - ovirt-4.4-copr:copr.fedorainfracloud.org:nmstate:nmstate-0.3
+  # - ovirt-4.4-copr:copr.fedorainfracloud.org:networkmanager:NetworkManager-1.26
   # Kubernetes
   - copr:copr.fedorainfracloud.org:rhcontainerbot:container-selinux
   - devel_kubic_libcontainers_stable
-  - devel_kubic_libcontainers_stable_cri-o_1.18_1.18.3
+  - devel_kubic_libcontainers_stable_cri-o_1.20
   # GPU support
   # - ROCm
