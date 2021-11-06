@@ -20,7 +20,7 @@ video:x:39:
 ftp:x:50:
 lock:x:54:
 audio:x:63:
-nobody:x:99:
+nobody:x:65534:
 users:x:100:
 utmp:x:22:
 utempter:x:35:

@@ -6,80 +6,98 @@ rojig:
   license: MIT
 packages:
   - bsdtar
+  - driverctl
   - iotop
   - micro
+  - mtr
+  - net-tools
+  - nmap
   - zsh
   - zsh-syntax-highlighting
-  - centos-release-advanced-virtualization
-  - centos-release-gluster8
-  # - centos-release-nfs-ganesha30
-  - centos-release-opstools
+  # - centos-release-advanced-virtualization
+  - centos-release-gluster9
+  # - centos-release-opstools
   # - centos-release-ovirt44
+  # - centos-release-nfv-openvswitch
   - epel-release
   - freeipa-client
+  - tpm2-tss
   - keepalived
   - ncdu
   - wireguard-tools
   # Cockpit
+  - cockpit
   - cockpit-networkmanager
-  - cockpit-machines
-  - cockpit-podman
+  # - cockpit-machines
   - cockpit-storaged
-  # Convenient hooks for Podman/Docker
-  - oci-systemd-hook
-  - oci-umount
-  # Automatic decryption on boot
-  - clevis-dracut
-  # Ovirt
-  # - ovirt-engine
-  # - cockpit-ovirt-dashboard
-  - virtio-win
-  - virt-install
-  - virt-top
-  - libvirt-daemon-kvm
-  - libvirt-daemon-driver-storage-gluster
-  - libvirt-daemon-driver-storage-iscsi
-  - qemu-kvm
-  # - qemu-system-aarch64
-  # - qemu-system-arm
-  # - qemu-system-ppc
-  # - qemu-system-riscv
-  # - qemu-system-x86
-  - libguestfs-tools
-  - python3-libguestfs
+  - cockpit-system
+  # - virtio-win
+  # - virt-install
+  # - virt-top
+  # - libvirt-daemon-kvm
+  # - libvirt-daemon-driver-storage-gluster
+  # - libvirt-daemon-driver-storage-iscsi
+  # - qemu-kvm
+  # - libguestfs-tools
+  # - python3-libguestfs
   # Kubernetes
+  - iproute-tc
   - cri-o
   - conntrack-tools
   # Storage
   - glusterfs
   - glusterfs-server
   - targetcli
-  - nfs-utils
+  - target-isns
+  - isns-utils
   - zfs
+  - zfs-dkms
   - rubygems
-packages-aarch64:
-  - edk2-aarch64
-packages-x86_64:
-  - edk2-ovmf
-  # GPU support
-  # - rocm-smi
-  # - rocminfo
-  # - rocm-opencl
-  # - clinfo
-  # - radeontop
+# packages-aarch64:
+#   - edk2-aarch64
+# packages-x86_64:
+  # - edk2-ovmf
+  # Ovirt
+  # - ovirt-engine
+  # - cockpit-ovirt-dashboard
+# GPU support
+# - rocm-smi
+# - rocminfo
+# - rocm-opencl
+# - clinfo
+# - radeontop
+
+modules:
+  enable:
+    - python36:3.6
+    - container-tools:rhel8
+    - idm:client
+    - ruby:2.5
+    - virt:rhel
+    - pki-deps:10.6
+    - postgresql:13
+    - javapackages-tools:201801
+    # - llvm-toolset:rhel8
+    # - perl:5.26
+    # - perl-IO-Socket-SSL:2.066
+    # - perl-libwww-perl:6.34
+    # - httpd:2.4
+    # - nodejs:10
 
 units:
   - rpm-ostreed-automatic.timer
   - cockpit.socket
   - ostree-remount.service
   - crio.service
-  - io.podman.socket
+  - podman.socket
+  - zfs-import-scan.service
 
 add-files:
   [
     ["ls-iommu.sh", "/usr/bin/ls-iommu.sh"],
     ["ls-reset.sh", "/usr/bin/ls-reset.sh"],
     ["kubectl", "/usr/bin/kubectl"],
+    ["kubectl-convert", "/usr/bin/kubectl-convert"],
     ["kube-scheduler.docker_tag", "/usr/bin/kube-scheduler.docker_tag"],
     ["kube-scheduler", "/usr/bin/kube-scheduler"],
     ["kube-proxy.tar", "/usr/bin/kube-proxy.tar"],
@@ -102,13 +120,13 @@ add-files:
     ["kubeadm", "/usr/bin/kubeadm"],
     ["kubelet.service", "/etc/systemd/system/kubelet.service"],
     ["crictl", "/usr/bin/crictl"],
+    ["helm", "/usr/bin/helm"],
     ["initialize-kubernetes.sh", "/usr/bin/initialize-kubernetes.sh"],
   ]
 
 # ["rocm.sh", "/etc/profile.d/rocm.sh"],
 default-target: multi-user.target
 # readonly-executables: true
-# TODO: enable modules pki-deps, postgresql:12 and javapackages-tools
 repos:
   # CentOS repos
   - AppStream
@@ -120,20 +138,19 @@ repos:
   # - zfs-kmod
   - zfs
   # OVirt
-  - centos-advanced-virtualization
-  - centos-gluster8
+  # - centos-advanced-virtualization
+  - centos-gluster9
+  # - centos-nfv-openvswitch
   # - centos-ovirt44
-  - centos-opstools
-  - virtio-win-latest
+  # - centos-opstools
+  # - virtio-win-latest
   # - ovirt-4.4
-  # - ovirt-4.4-copr:copr.fedorainfracloud.org:sbonazzo:EL8_collection
+  ## - ovirt-4.4-copr:copr.fedorainfracloud.org:sbonazzo:EL8_collection
   # - ovirt-4.4-copr:copr.fedorainfracloud.org:sac:gluster-ansible
   # - ovirt-4.4-copr:copr.fedorainfracloud.org:mdbarroso:ovsdbapp
-  # - ovirt-4.4-copr:copr.fedorainfracloud.org:nmstate:nmstate-0.3
-  # - ovirt-4.4-copr:copr.fedorainfracloud.org:networkmanager:NetworkManager-1.26
   # Kubernetes
   - copr:copr.fedorainfracloud.org:rhcontainerbot:container-selinux
   - devel_kubic_libcontainers_stable
-  - devel_kubic_libcontainers_stable_cri-o_1.20
+  - devel_kubic_libcontainers_stable_cri-o_1.22
   # GPU support
   # - ROCm

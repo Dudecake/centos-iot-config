@@ -8,17 +8,11 @@ include: centos-common-ostree-pkgs.yaml
 
 packages:
   - git-core
-  - lvm2
-  - rpm-ostree
   # Container management
   - buildah
-  - podman
-  - skopeo
   - toolbox
   # Flatpak support
   - flatpak
-  - flatpak-builder
-  - xdg-desktop-portal
   # Bundle the minimal -devel packages needed to build a kernel.
   # This is needed because we can't rely on layering to install these
   # due to version conflicts with the base image.
@@ -31,10 +25,13 @@ packages:
 
 selinux: true
 documentation: true
-boot_location: modules
+boot-location: modules
 etc-group-members:
   - wheel
 tmp-is-dir: true
+
+# We can drop this when it's the rpm-ostree default
+rpmdb: sqlite
 
 postprocess-script: post.sh
 
@@ -47,30 +44,10 @@ check-groups: { type: file, filename: group }
 
 default_target: graphical.target
 
-# Keep this in sync with centos-atomic-host.json from centos-atomic
-packages-aarch64:
-  - grub2-efi
-  - ostree-grub2
-  - efibootmgr
-  - shim
-packages-armhfp:
-  - extlinux-bootloader
-packages-ppc64:
-  - grub2
-  - ostree-grub2
-packages-ppc64le:
-  - grub2
-  - ostree-grub2
-packages-x86_64:
-  - grub2
-  - grub2-efi-x64
-  - ostree-grub2
-  - efibootmgr
-  - shim
-  - microcode_ctl
-  - mcelog
-  - hyperv-daemons
-  - open-vm-tools-desktop
-  - xorg-x11-drv-intel
-  - xorg-x11-drv-vesa
-  - xorg-x11-drv-vmware
+# Make sure the following are not pulled in when Recommended by other packages
+exclude-packages:
+  - PackageKit
+  # We can not include openh264. See https://fedoraproject.org/wiki/OpenH264
+  - gstreamer1-plugin-openh264
+  - mozilla-openh264
+  - openh264
