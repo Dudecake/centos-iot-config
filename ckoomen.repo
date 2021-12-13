@@ -1,0 +1,7 @@
+[ckoomen]
+name=CKoomen repo
+baseurl=https://repo.ckoomen.eu/centos/8/$basearch/os/
+enabled=1
+metadata_expire=7d
+gpgcheck=0
+gpgkey=https://repo.ckoomen.eu/RPM-GPG-KEY-ckoomen
