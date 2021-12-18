@@ -29,20 +29,18 @@ packages:
   # Cockpit
   - cockpit
   - cockpit-networkmanager
-  # - cockpit-machines
+  - cockpit-machines
   - cockpit-storaged
   - cockpit-system
-  # - virtio-win
-  # - virt-install
-  # - virt-top
-  # - libvirt-daemon-kvm
-  # - libvirt-daemon-driver-storage-gluster
-  # - libvirt-daemon-driver-storage-iscsi
-  # - qemu-kvm
+  - virtio-win
+  - virt-install
+  - virt-top
+  - libvirt
+  - libvirt-daemon-kvm
   # - libguestfs-tools
   # - python3-libguestfs
   # Kubernetes
-  - chectl-bin
+  # - chectl-bin
   - kubernetes-bin
   - helm-bin
   - iproute-tc
@@ -57,10 +55,10 @@ packages:
   - isns-utils
   - zfs
   - rubygems
-# packages-aarch64:
-#   - edk2-aarch64
-# packages-x86_64:
-  # - edk2-ovmf
+packages-aarch64:
+  - edk2-aarch64
+packages-x86_64:
+  - edk2-ovmf
   # Ovirt
   # - ovirt-engine
   # - cockpit-ovirt-dashboard
@@ -78,10 +76,10 @@ modules:
     - idm:client
     - ruby:2.5
     - virt:rhel
-    - pki-deps:10.6
-    - postgresql:13
-    - javapackages-tools:201801
-    # - llvm-toolset:rhel8
+    # - pki-deps:10.6
+    # - postgresql:13
+    # - javapackages-tools:201801
+    - llvm-toolset:rhel8
     # - perl:5.26
     # - perl-IO-Socket-SSL:2.066
     # - perl-libwww-perl:6.34
@@ -123,7 +121,7 @@ repos:
   # - centos-nfv-openvswitch
   # - centos-ovirt44
   # - centos-opstools
-  # - virtio-win-latest
+  - virtio-win-latest
   # - ovirt-4.4
   ## - ovirt-4.4-copr:copr.fedorainfracloud.org:sbonazzo:EL8_collection
   # - ovirt-4.4-copr:copr.fedorainfracloud.org:sac:gluster-ansible
