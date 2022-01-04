@@ -69,6 +69,9 @@ packages-x86_64:
 # - clinfo
 # - radeontop
 
+exclude-packages:
+  - zfs-dkms
+
 modules:
   enable:
     - python36:3.6
@@ -93,6 +96,7 @@ units:
   - crio.service
   - podman.socket
   - zfs-import-scan.service
+  - libvirtd.socket
 
 add-files:
   [

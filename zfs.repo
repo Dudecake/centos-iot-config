@@ -1,7 +1,0 @@
-[zfs]
-name=ZFS on Linux for EL8
-baseurl=file:///var/cache/ostree/zfs
-enabled=1
-metadata_expire=7d
-gpgcheck=0
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-zfsonlinux

@@ -10,6 +10,7 @@ packages:
   - git-core
   # Container management
   - buildah
+  - skopeo
   - toolbox
   # Flatpak support
   - flatpak
