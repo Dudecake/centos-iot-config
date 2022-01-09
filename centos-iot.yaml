@@ -9,6 +9,7 @@ packages:
   - driverctl
   - iotop
   - micro
+  - mlocate
   - mtr
   - net-tools
   - bridge-utils
@@ -109,10 +110,10 @@ add-files:
 default-target: multi-user.target
 # readonly-executables: true
 repos:
-  # CentOS repos
-  - AppStream
-  - BaseOS
-  - PowerTools
+  # AlmaLinux repos
+  - appstream
+  - baseos
+  - powertools
   - extras
   - epel
   - ckoomen
