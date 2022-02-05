@@ -38,7 +38,7 @@ packages:
   - virt-top
   - libvirt
   - libvirt-daemon-kvm
-  # - libguestfs-tools
+  - guestfs-tools
   # - python3-libguestfs
   # Kubernetes
   # - chectl-bin
