@@ -13,14 +13,11 @@ packages:
   - mtr
   - net-tools
   - bridge-utils
+  - wol
   - nmap
   - zsh
   - zsh-syntax-highlighting
-  # - centos-release-advanced-virtualization
-  - centos-release-gluster9
-  # - centos-release-opstools
-  # - centos-release-ovirt44
-  # - centos-release-nfv-openvswitch
+  # - centos-release-ovirt45
   - epel-release
   - freeipa-client
   - tpm2-tss
@@ -38,7 +35,7 @@ packages:
   - virt-top
   - libvirt
   - libvirt-daemon-kvm
-  - guestfs-tools
+  # - guestfs-tools
   # - python3-libguestfs
   # Kubernetes
   # - chectl-bin
@@ -51,6 +48,7 @@ packages:
   # Storage
   - glusterfs
   - glusterfs-server
+  - glusterfs-ganesha
   - targetcli
   - target-isns
   - isns-utils
@@ -80,13 +78,12 @@ modules:
     - idm:client
     - ruby:2.5
     - virt:rhel
-    # - pki-deps:10.6
     # - postgresql:13
     # - javapackages-tools:201801
     - llvm-toolset:rhel8
-    # - perl:5.26
-    # - perl-IO-Socket-SSL:2.066
-    # - perl-libwww-perl:6.34
+    - perl:5.26
+    - perl-IO-Socket-SSL:2.066
+    - perl-libwww-perl:6.34
     # - httpd:2.4
     # - nodejs:10
 
@@ -113,24 +110,16 @@ repos:
   # AlmaLinux repos
   - appstream
   - baseos
+  - ha
   - powertools
   - extras
   - epel
   - ckoomen
-  # ZFS repo
-  # - zfs-kmod
-  # - zfs
   # OVirt
-  # - centos-advanced-virtualization
-  - centos-gluster10
-  # - centos-nfv-openvswitch
-  # - centos-ovirt44
-  # - centos-opstools
+  # - centos-ovirt45
+  - centos-nfsganesha-4
   - virtio-win-latest
-  # - ovirt-4.4
-  ## - ovirt-4.4-copr:copr.fedorainfracloud.org:sbonazzo:EL8_collection
-  # - ovirt-4.4-copr:copr.fedorainfracloud.org:sac:gluster-ansible
-  # - ovirt-4.4-copr:copr.fedorainfracloud.org:mdbarroso:ovsdbapp
+  # - ovirt-4.5
   # Kubernetes
   - copr:copr.fedorainfracloud.org:rhcontainerbot:container-selinux
   - devel_kubic_libcontainers_stable

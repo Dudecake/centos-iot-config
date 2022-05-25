@@ -1,0 +1,19 @@
+# CentOS-Ceph-Pacific.repo
+#
+# Please see https://wiki.centos.org/SpecialInterestGroup/Storage for more
+# information
+
+[centos-ceph-pacific]
+name=CentOS-$stream - Ceph Pacific
+mirrorlist=http://mirrorlist.centos.org/?release=$stream&arch=$basearch&repo=storage-ceph-pacific
+#baseurl=http://mirror.centos.org/$contentdir/$stream/storage/$basearch/ceph-pacific/
+gpgcheck=1
+enabled=1
+gpgkey=https://www.centos.org/keys/RPM-GPG-KEY-CentOS-SIG-Storage
+
+[centos-ceph-pacific-test]
+name=CentOS-$stream - Ceph Pacific Testing
+baseurl=https://buildlogs.centos.org/centos/$stream/storage/$basearch/ceph-pacific/
+gpgcheck=0
+enabled=0
+gpgkey=https://www.centos.org/keys/RPM-GPG-KEY-CentOS-SIG-Storage

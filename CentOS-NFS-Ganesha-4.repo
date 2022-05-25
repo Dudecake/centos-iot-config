@@ -1,0 +1,12 @@
+# CentOS-NFS-Ganesha-4.repo
+#
+# Please see http://wiki.centos.org/SpecialInterestGroup/Storage for more
+# information
+
+[centos-nfsganesha-4]
+name=CentOS-$releasever - NFS Ganesha 4
+mirrorlist=http://mirrorlist.centos.org/?arch=$basearch&release=$releasever&repo=storage-nfsganesha-4
+#baseurl=https://mirror.centos.org/$contentdir/$releasever/storage/$basearch/nfsganesha-4/
+gpgcheck=1
+enabled=1
+gpgkey=https://www.centos.org/keys/RPM-GPG-KEY-CentOS-SIG-Storage

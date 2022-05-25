@@ -1,0 +1,90 @@
+# Please see http://wiki.centos.org/SpecialInterestGroup/Virtualization for more
+# information
+#
+# The mirrorlist system uses the connecting IP address of the client and the
+# update status of each mirror to pick current mirrors that are geographically
+# close to the client.  You should use this for CentOS updates unless you are
+# manually picking other mirrors.
+#
+# If the mirrorlist does not work for you, you can try the commented out
+# baseurl line instead.
+
+[centos-ovirt45]
+name=CentOS Stream $releasever - oVirt 4.5
+# baseurl=http://mirror.centos.org/centos/$stream/virt/$basearch/ovirt-45/
+mirrorlist=http://mirrorlist.centos.org/?release=$stream&arch=$basearch&repo=virt-ovirt-45
+gpgcheck=1
+enabled=1
+module_hotfixes=1
+gpgkey=https://www.centos.org/keys/RPM-GPG-KEY-CentOS-SIG-Virtualization
+
+[centos-ovirt45-testing]
+name=CentOS Stream $releasever - oVirt 4.5 - Testing
+baseurl=https://buildlogs.centos.org/centos/$stream/virt/$basearch/ovirt-45/
+gpgcheck=0
+# we are still in pre-release, disabling this for GA release
+enabled=0
+module_hotfixes=1
+
+[centos-ovirt45-debug]
+name=CentOS Stream $releasever - oVirt 4.5 - Debug
+baseurl=http://debuginfo.centos.org/centos/$stream/virt/$basearch/
+gpgcheck=1
+enabled=0
+gpgkey=https://www.centos.org/keys/RPM-GPG-KEY-CentOS-SIG-Virtualization
+
+[centos-ovirt45-source]
+name=CentOS Stream $releasever - oVirt 4.5 - Source
+baseurl=https://vault.centos.org/centos/$stream/virt/Source/ovirt-45/
+gpgcheck=1
+enabled=0
+gpgkey=https://www.centos.org/keys/RPM-GPG-KEY-CentOS-SIG-Virtualization
+
+# The following repositories are provided as no centos-release-* rpm is available yet for them
+# These are avaliable only as testing repositories
+
+[ovirt-45-centos-stream-openstack-yoga]
+name=CentOS Stream $releasever - oVirt 4.5 - OpenStack Yoga Repository
+# baseurl=http://mirror.centos.org/centos/$stream/cloud/$basearch/openstack-yoga/
+mirrorlist=http://mirrorlist.centos.org/?release=$stream&arch=$basearch&repo=cloud-openstack-yoga
+gpgcheck=1
+gpgkey=https://www.centos.org/keys/RPM-GPG-KEY-CentOS-SIG-Cloud
+enabled=1
+module_hotfixes=1
+exclude=
+ # ansible-2.9.27-4.el8 shipped in yoga repo is breaking dependencies on oVirt side
+ ansible
+ ansible-test
+
+
+[ovirt-45-centos-stream-openstack-yoga-testing]
+name=CentOS Stream $releasever - oVirt 4.5 - OpenStack Yoga Repository - testing
+baseurl=https://buildlogs.centos.org/centos/$stream/cloud/$basearch/openstack-yoga/
+gpgcheck=0
+enabled=0
+module_hotfixes=1
+exclude=
+ # ansible-2.9.27-4.el8 shipped in yoga repo is breaking dependencies on oVirt side
+ ansible
+ ansible-test
+
+# A few packages couldn't be built within CBS. We are hosting the rpms on resources.ovirt.org.
+[ovirt-45-upstream]
+name=oVirt upstream for CentOS Stream $releasever - oVirt 4.5
+enabled=1
+mirrorlist=https://mirrorlist.ovirt.org/mirrorlist-ovirt-4.5-el$releasever
+#baseurl=https://resources.ovirt.org/pub/ovirt-4.5/rpm/el$releasever
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oVirt-4.5
+# ovirt mirrorlist is static
+fastestmirror=1
+
+[ovirt-45-upstream-testing]
+name=oVirt upstream for CentOS Stream $releasever - oVirt 4.5 - testing
+enabled=0
+mirrorlist=https://mirrorlist.ovirt.org/mirrorlist-ovirt-4.5-pre-el$releasever
+#baseurl=https://resources.ovirt.org/pub/ovirt-4.5-pre/rpm/el$releasever
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oVirt-4.5
+# ovirt mirrorlist is static
+fastestmirror=1
