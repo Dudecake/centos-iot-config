@@ -15,14 +15,21 @@ packages:
   - bridge-utils
   - wol
   - nmap
+  - iperf3
   - zsh
   - zsh-syntax-highlighting
-  # - centos-release-ovirt45
+  - centos-release-advanced-virtualization
+  - centos-release-gluster10
+  - centos-release-hyperscale
+  - centos-release-nfs-ganesha4
+  - centos-release-opstools
+  - centos-release-ovirt45
   - epel-release
   - freeipa-client
   - tpm2-tss
   - keepalived
   - ncdu
+  # - kmod-wireguard
   - wireguard-tools
   # Cockpit
   - cockpit
@@ -74,18 +81,22 @@ exclude-packages:
 modules:
   enable:
     - python36:3.6
+    # - python38:3.8
     - container-tools:rhel8
     - idm:client
     - ruby:2.5
     - virt:rhel
     # - postgresql:13
     # - javapackages-tools:201801
+    # - pki-deps:10.6
     - llvm-toolset:rhel8
+    # - maven:3.5
     - perl:5.26
     - perl-IO-Socket-SSL:2.066
     - perl-libwww-perl:6.34
     # - httpd:2.4
     # - nodejs:10
+    # - mod_auth_openidc
 
 units:
   - rpm-ostreed-automatic.timer
@@ -101,28 +112,42 @@ add-files:
     ["ls-iommu.sh", "/usr/bin/ls-iommu.sh"],
     ["ls-reset.sh", "/usr/bin/ls-reset.sh"],
     ["initialize-kubernetes.sh", "/usr/bin/initialize-kubernetes.sh"],
+    [
+      "RPM-GPG-KEY-fedora-35-primary",
+      "/etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-35-primary",
+    ],
   ]
 
 # ["rocm.sh", "/etc/profile.d/rocm.sh"],
 default-target: multi-user.target
 # readonly-executables: true
 repos:
-  # AlmaLinux repos
+  # CentOS repos
   - appstream
   - baseos
   - ha
   - powertools
+  - extras-common
   - extras
+  - centos-hyperscale
+  - powertools
+  - rt
+  - resilientstorage
+  - epel-modular
   - epel
   - ckoomen
   # OVirt
+  # - centos-ceph-pacific
+  # - centos-nfv-openvswitch
   # - centos-ovirt45
+  # - ovirt-45-centos-stream-openstack-yoga
+  # - ovirt-45-upstream
   - centos-nfsganesha-4
+  # - centos-opstools
   - virtio-win-latest
-  # - ovirt-4.5
   # Kubernetes
   - copr:copr.fedorainfracloud.org:rhcontainerbot:container-selinux
   - devel_kubic_libcontainers_stable
-  - devel_kubic_libcontainers_stable_cri-o_1.22
+  - devel_kubic_libcontainers_stable_cri-o_1.24
   # GPU support
   # - ROCm

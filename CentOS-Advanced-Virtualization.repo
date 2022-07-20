@@ -4,9 +4,9 @@
 # information
 
 [centos-advanced-virtualization]
-name=CentOS-$releasever - Advanced Virtualization
-mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=virt-advanced-virtualization
-#baseurl=http://mirror.centos.org/$contentdir/$releasever/virt/$basearch/advanced-virtualization/
+name=CentOS-$releasever-stream - Advanced Virtualization
+mirrorlist=http://mirrorlist.centos.org/?release=$releasever-stream&arch=$basearch&repo=virt-advanced-virtualization
+#baseurl=http://mirror.centos.org/centos/$releasever-stream/virt/$basearch/advanced-virtualization/
 gpgcheck=1
 enabled=1
 module_hotfixes=1

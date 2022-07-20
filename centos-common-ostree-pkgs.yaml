@@ -1,5 +1,5 @@
 packages:
-  - almalinux-release
+  - centos-stream-release
   - glibc
   - glibc-minimal-langpack
   - nss-altfiles
