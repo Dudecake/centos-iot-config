@@ -148,6 +148,6 @@ repos:
   # Kubernetes
   - copr:copr.fedorainfracloud.org:rhcontainerbot:container-selinux
   - devel_kubic_libcontainers_stable
-  - devel_kubic_libcontainers_stable_cri-o_1.24
+  - devel_kubic_libcontainers_stable_cri-o_1.25
   # GPU support
   # - ROCm
