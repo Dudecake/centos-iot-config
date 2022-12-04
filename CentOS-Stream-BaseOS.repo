@@ -10,8 +10,8 @@
 
 [baseos]
 name=CentOS Stream $releasever - BaseOS
-#mirrorlist=http://mirrorlist.centos.org/?release=$releasever-stream&arch=$basearch&repo=BaseOS&infra=$infra
-baseurl=http://mirror.centos.org/centos/$releasever-stream/BaseOS/$basearch/os/
+mirrorlist=http://mirrorlist.centos.org/?release=$releasever-stream&arch=$basearch&repo=BaseOS&infra=$infra
+#baseurl=http://mirror.centos.org/centos/$releasever-stream/BaseOS/$basearch/os/
 gpgcheck=1
 enabled=1
 gpgkey=https://www.centos.org/keys/RPM-GPG-KEY-CentOS-Official

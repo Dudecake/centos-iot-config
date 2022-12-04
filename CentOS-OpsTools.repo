@@ -4,10 +4,10 @@
 # information
 
 [centos-opstools]
-name=CentOS-8 - OpsTools - collectd
-#mirrorlist=http://mirrorlist.centos.org/?arch=$basearch&release=$releasever-stream&repo=opstools-collectd-5
-baseurl=http://mirror.centos.org/centos/$releasever-stream/opstools/$basearch/collectd-5/
+name=CentOS-OpsTools - collectd
+mirrorlist=http://mirrorlist.centos.org/?arch=$basearch&release=$releasever-stream&repo=opstools-collectd-5
+#baseurl=http://mirror.centos.org/centos/$releasever-stream/opstools/$basearch/collectd-5/
 gpgcheck=1
 enabled=1
 skip_if_unavailable=1
-gpgkey=https://www.centos.org/keys//RPM-GPG-KEY-CentOS-SIG-OpsTools
+gpgkey=https://www.centos.org/keys/RPM-GPG-KEY-CentOS-SIG-OpsTools

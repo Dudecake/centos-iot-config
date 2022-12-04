@@ -1,7 +1,0 @@
-[ovirt-4.4]
-name=Latest oVirt 4.4 Release
-#baseurl=https://resources.ovirt.org/pub/ovirt-4.4/rpm/el8/
-mirrorlist=https://resources.ovirt.org/pub/yum-repo/mirrorlist-ovirt-4.4-el8
-enabled=1
-gpgcheck=1
-gpgkey=https://resources.ovirt.org/pub/keys/RPM-GPG-ovirt-v2

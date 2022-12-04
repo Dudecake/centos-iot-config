@@ -16,6 +16,7 @@ packages:
   - wol
   - nmap
   - iperf3
+  - dnf
   - zsh
   - zsh-syntax-highlighting
   - centos-release-advanced-virtualization
@@ -23,7 +24,7 @@ packages:
   - centos-release-hyperscale
   - centos-release-nfs-ganesha4
   - centos-release-opstools
-  - centos-release-ovirt45
+  # - centos-release-ovirt45
   - epel-release
   - freeipa-client
   - tpm2-tss
@@ -112,10 +113,6 @@ add-files:
     ["ls-iommu.sh", "/usr/bin/ls-iommu.sh"],
     ["ls-reset.sh", "/usr/bin/ls-reset.sh"],
     ["initialize-kubernetes.sh", "/usr/bin/initialize-kubernetes.sh"],
-    [
-      "RPM-GPG-KEY-fedora-35-primary",
-      "/etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-35-primary",
-    ],
   ]
 
 # ["rocm.sh", "/etc/profile.d/rocm.sh"],
@@ -129,7 +126,9 @@ repos:
   - powertools
   - extras-common
   - extras
+  - centos-gluster10
   - centos-hyperscale
+  - centos-nfsganesha-4
   - powertools
   - rt
   - resilientstorage
@@ -137,6 +136,7 @@ repos:
   - epel
   - ckoomen
   # OVirt
+  # - centos-advanced-virtualization
   # - centos-ceph-pacific
   # - centos-nfv-openvswitch
   # - centos-ovirt45

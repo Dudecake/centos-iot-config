@@ -1,6 +1,6 @@
 [ckoomen]
 name=CKoomen repo
-baseurl=https://repo.ckoomen.eu/centos/8/$basearch/os/
+baseurl=https://repo.ckoomen.eu/centos/$releasever-stream/$basearch/os/
 enabled=1
 metadata_expire=7d
 gpgcheck=0

@@ -34,5 +34,5 @@ echo >> 'net.ipv4.ip_forward = 1' > /etc/sysctl.d/99-sysctl.conf
 
 mkdir /usr/libexec/kubernetes
 echo 'KUBELET_EXTRA_ARGS="--cgroup-driver=systemd  --cgroup-root=/ --fail-swap-on=false"' >> /etc/sysconfig/kubelet
-rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-35-primary
+# rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-35-primary
 # chcon -t conmon_exec_t /usr/bin/conmon

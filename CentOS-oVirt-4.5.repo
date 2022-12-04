@@ -11,8 +11,8 @@
 
 [centos-ovirt45]
 name=CentOS Stream $releasever - oVirt 4.5
-baseurl=http://mirror.centos.org/centos/$releasever-stream/virt/$basearch/ovirt-45/
-#mirrorlist=http://mirrorlist.centos.org/?release=$releasever-stream&arch=$basearch&repo=virt-ovirt-45
+# baseurl=http://mirror.centos.org/centos/$releasever-stream/virt/$basearch/ovirt-45/
+mirrorlist=http://mirrorlist.centos.org/?release=$releasever-stream&arch=$basearch&repo=virt-ovirt-45
 gpgcheck=1
 enabled=1
 module_hotfixes=1
@@ -23,8 +23,8 @@ gpgkey=https://www.centos.org/keys/RPM-GPG-KEY-CentOS-SIG-Virtualization
 
 [ovirt-45-centos-stream-openstack-yoga]
 name=CentOS Stream $releasever - oVirt 4.5 - OpenStack Yoga Repository
-baseurl=http://mirror.centos.org/centos/$releasever-stream/cloud/$basearch/openstack-yoga/
-#mirrorlist=http://mirrorlist.centos.org/?release=$releasever-stream&arch=$basearch&repo=cloud-openstack-yoga
+# baseurl=http://mirror.centos.org/centos/$releasever-stream/cloud/$basearch/openstack-yoga/
+mirrorlist=http://mirrorlist.centos.org/?release=$releasever-stream&arch=$basearch&repo=cloud-openstack-yoga
 gpgcheck=1
 gpgkey=https://www.centos.org/keys/RPM-GPG-KEY-CentOS-SIG-Cloud
 enabled=1
@@ -33,13 +33,18 @@ exclude=
  # ansible-2.9.27-4.el8 shipped in yoga repo is breaking dependencies on oVirt side
  ansible
  ansible-test
+ python3-rdo-openvswitch
+ rdo-openvswitch
+ rdo-ovn
+ rdo-ovn-central
+ rdo-ovn-host
 
 # A few packages couldn't be built within CBS. We are hosting the rpms on resources.ovirt.org.
 [ovirt-45-upstream]
 name=oVirt upstream for CentOS Stream $releasever - oVirt 4.5
 enabled=1
-#mirrorlist=https://mirrorlist.ovirt.org/mirrorlist-ovirt-4.5-el$releasever
-baseurl=https://resources.ovirt.org/pub/ovirt-4.5/rpm/el$releasever
+mirrorlist=https://mirrorlist.ovirt.org/mirrorlist-ovirt-4.5-el$releasever
+#baseurl=https://resources.ovirt.org/pub/ovirt-4.5/rpm/el$releasever
 gpgcheck=1
 gpgkey=https://resources.ovirt.org/pub/keys/RPM-GPG-ovirt-v3
 # ovirt mirrorlist is static

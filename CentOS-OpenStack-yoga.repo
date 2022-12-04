@@ -1,0 +1,13 @@
+# CentOS-OpenStack-yoga.repo
+#
+# Please see http://wiki.centos.org/SpecialInterestGroup/Cloud for more
+# information
+
+[centos-openstack-yoga]
+name=CentOS-$releasever - OpenStack yoga
+#baseurl=http://mirror.stream.centos.org/$releasever-stream/cloud/$basearch/openstack-yoga/
+metalink=https://mirrors.centos.org/metalink?repo=centos-cloud-sig-openstack-yoga-$releasever-stream&arch=$basearch&protocol=https,http
+gpgcheck=1
+enabled=1
+gpgkey=https://www.centos.org/keys/RPM-GPG-KEY-CentOS-SIG-Cloud
+module_hotfixes=1
