@@ -9,6 +9,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" > /dev/null && pwd )"
 KEY=${KEY:-920498D5E1E4D38C258A1AE623FE6D6C9114BC76}
 DIST_NAME=iot
 DIST_PATH=${DIST_PATH:-/srv/http/ckoomen.eu/ostree/iot}
+CACHE_PATH=${CACHE_PATH:-/var/cache/rpm-ostree/centos/${DIST_NAME}}
 MACHINE="$(uname -m)"
 
 set -e
@@ -18,6 +19,7 @@ if [[ ${MACHINE} != "x86_64" && ${MACHINE} != "aarch64" && ${MACHINE} != "ppc64l
 fi
 
 [[ ! -z ${DRYRUN} ]] && exit 0
+[[ ! -d "${CACHE_PATH}" ]] && mkdir -p "${CACHE_PATH}"
 if [[ ! -d "${DIST_PATH}/tmp" ]]; then
   mkdir -p ${DIST_PATH}
   ostree init --repo="${DIST_PATH}" --mode=archive
@@ -26,7 +28,7 @@ if [[ -f "${DIST_PATH}/refs/heads/centos/8/${MACHINE}/${DIST_NAME}" ]]; then
   NEW_REPO=1
 fi
 cd ${DIR}
-rpm-ostree compose tree --repo="${DIST_PATH}" "${DIR}/centos-iot.yaml" --unified-core
+rpm-ostree compose tree --repo="${DIST_PATH}" --cachedir="${CACHE_PATH}" "${DIR}/centos-iot.yaml" --unified-core
 if [[ -z "${NEW_REPO}" ]]; then
   ostree --repo="${DIST_PATH}" static-delta generate centos/8/${MACHINE}/${DIST_NAME}
 fi
