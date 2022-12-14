@@ -1,0 +1,7 @@
+[ceph-iscsi]
+name=ceph-iscsi noarch packages
+baseurl=http://download.ceph.com/ceph-iscsi/3/rpm/el$releasever/noarch
+enabled=1
+gpgcheck=1
+gpgkey=https://download.ceph.com/keys/release.asc
+type=rpm-md

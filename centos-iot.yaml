@@ -20,6 +20,7 @@ packages:
   - zsh
   - zsh-syntax-highlighting
   - centos-release-advanced-virtualization
+  - centos-release-ceph-quincy
   - centos-release-gluster10
   - centos-release-hyperscale
   - centos-release-nfs-ganesha4
@@ -64,8 +65,14 @@ packages:
   - rubygems
 packages-aarch64:
   - edk2-aarch64
+  - ceph
+  - ceph-iscsi
+  - tcmu-runner
 packages-x86_64:
   - edk2-ovmf
+  - ceph
+  - ceph-iscsi
+  - tcmu-runner
   # Ovirt
   # - ovirt-engine
   # - cockpit-ovirt-dashboard
@@ -113,6 +120,7 @@ add-files:
     ["ls-iommu.sh", "/usr/bin/ls-iommu.sh"],
     ["ls-reset.sh", "/usr/bin/ls-reset.sh"],
     ["initialize-kubernetes.sh", "/usr/bin/initialize-kubernetes.sh"],
+    ["ceph-iscsi.repo", "/etc/yum.repos.d/ceph-iscsi.repo"],
   ]
 
 # ["rocm.sh", "/etc/profile.d/rocm.sh"],
@@ -126,6 +134,7 @@ repos:
   - powertools
   - extras-common
   - extras
+  - centos-ceph-quincy
   - centos-gluster10
   - centos-hyperscale
   - centos-nfsganesha-4
@@ -135,6 +144,7 @@ repos:
   - epel-modular
   - epel
   - ckoomen
+  - ceph-iscsi
   # OVirt
   # - centos-advanced-virtualization
   # - centos-ceph-pacific
@@ -142,7 +152,6 @@ repos:
   # - centos-ovirt45
   # - ovirt-45-centos-stream-openstack-yoga
   # - ovirt-45-upstream
-  - centos-nfsganesha-4
   # - centos-opstools
   - virtio-win-latest
   # Kubernetes
