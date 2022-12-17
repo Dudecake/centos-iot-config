@@ -66,11 +66,13 @@ packages:
 packages-aarch64:
   - edk2-aarch64
   - ceph
+  - cephadm
   - ceph-iscsi
   - tcmu-runner
 packages-x86_64:
   - edk2-ovmf
   - ceph
+  - cephadm
   - ceph-iscsi
   - tcmu-runner
   # Ovirt
