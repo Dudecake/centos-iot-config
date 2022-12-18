@@ -145,6 +145,7 @@ repos:
   - resilientstorage
   - epel-modular
   - epel
+  - epel-next
   - ckoomen
   - ceph-iscsi
   # OVirt
