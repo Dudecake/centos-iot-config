@@ -33,6 +33,7 @@ packages:
   - ncdu
   # - kmod-wireguard
   - wireguard-tools
+  - zram-generator-defaults
   # Cockpit
   - cockpit
   - cockpit-networkmanager
