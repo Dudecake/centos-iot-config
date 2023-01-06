@@ -31,6 +31,7 @@ packages:
   - tpm2-tss
   - keepalived
   - ncdu
+  - tcpdump
   # - kmod-wireguard
   - wireguard-tools
   - zram-generator-defaults
@@ -142,7 +143,6 @@ repos:
   - centos-gluster10
   - centos-hyperscale
   - centos-nfsganesha-4
-  - powertools
   - rt
   - resilientstorage
   - epel-modular

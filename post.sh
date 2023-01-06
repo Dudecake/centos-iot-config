@@ -36,3 +36,5 @@ mkdir /usr/libexec/kubernetes
 echo 'KUBELET_EXTRA_ARGS="--cgroup-driver=systemd  --cgroup-root=/ --fail-swap-on=false"' >> /etc/sysconfig/kubelet
 # rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-35-primary
 # chcon -t conmon_exec_t /usr/bin/conmon
+useradd -mrd /var/lib/cephadm cephadm
+echo 'cephadm ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/cephadm
