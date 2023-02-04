@@ -1,0 +1,7 @@
+[home_cloud-hypervisor]
+name=Cloud Hypervisor (CentOS_8_Stream)
+type=rpm-md
+baseurl=https://download.opensuse.org/repositories/home:/cloud-hypervisor/CentOS_8_Stream/
+gpgcheck=1
+gpgkey=https://download.opensuse.org/repositories/home:/cloud-hypervisor/CentOS_8_Stream/repodata/repomd.xml.key
+enabled=1
