@@ -19,6 +19,7 @@ packages:
   - dnf
   - zsh
   - zsh-syntax-highlighting
+  - btop
   - centos-release-advanced-virtualization
   - centos-release-ceph-quincy
   - centos-release-gluster10
