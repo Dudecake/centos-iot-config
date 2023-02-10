@@ -37,12 +37,15 @@ packages:
   - wireguard-tools
   - zram-generator-defaults
   - openssh-askpass
+  - osbuild-composer
+  - composer-cli
   # Cockpit
   - cockpit
   - cockpit-networkmanager
   - cockpit-machines
   - cockpit-storaged
   - cockpit-system
+  - cockpit-composer
   - virtio-win
   - virt-install
   - virt-top
@@ -126,6 +129,7 @@ units:
   - podman.socket
   - zfs-import-scan.service
   - libvirtd.socket
+  - osbuild-composer.socket
 
 add-files:
   [
