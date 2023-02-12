@@ -75,6 +75,7 @@ packages-aarch64:
   - cloud-hypervisor
   - rust-hypervisor-firmware-bin
   - edk2-cloud-hypervisor
+  - kata-containers
   - ceph
   - cephadm
   - ceph-iscsi
@@ -84,6 +85,7 @@ packages-x86_64:
   - cloud-hypervisor
   - rust-hypervisor-firmware-bin
   - edk2-cloud-hypervisor
+  - kata-containers
   - ceph
   - cephadm
   - ceph-iscsi
@@ -162,7 +164,7 @@ repos:
   - ckoomen
   - ceph-iscsi
   # OVirt
-  # - centos-advanced-virtualization
+  - centos-advanced-virtualization
   # - centos-ceph-pacific
   # - centos-nfv-openvswitch
   # - centos-ovirt45
@@ -174,6 +176,7 @@ repos:
   - copr:copr.fedorainfracloud.org:rhcontainerbot:container-selinux
   - devel_kubic_libcontainers_stable
   - devel_kubic_libcontainers_stable_cri-o_1.25
+  - kata-containers
   - home_cloud-hypervisor
   # GPU support
   # - ROCm
