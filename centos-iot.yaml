@@ -20,6 +20,7 @@ packages:
   - zsh
   - zsh-syntax-highlighting
   - btop
+  - ckoomen-release
   - centos-release-advanced-virtualization
   - centos-release-ceph-quincy
   - centos-release-gluster10
@@ -33,6 +34,7 @@ packages:
   - keepalived
   - ncdu
   - tcpdump
+  - sbsigntools
   # - kmod-wireguard
   - wireguard-tools
   - zram-generator-defaults
