@@ -1,7 +1,7 @@
 packages:
   - centos-stream-release
   - glibc
-  - glibc-minimal-langpack
+  - glibc-all-langpacks
   - nss-altfiles
   - sssd-client
   - libsss_sudo
