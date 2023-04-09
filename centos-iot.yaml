@@ -53,6 +53,7 @@ packages:
   - virt-top
   - libvirt
   - libvirt-daemon-kvm
+  - butane
   # - guestfs-tools
   # - python3-libguestfs
   # Kubernetes
