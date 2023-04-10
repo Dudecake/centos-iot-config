@@ -40,6 +40,8 @@ packages:
   - zram-generator-defaults
   - openssh-askpass
   - osbuild-composer
+  - flatpak-builder
+  - snapper
   - composer-cli
   # Cockpit
   - cockpit
