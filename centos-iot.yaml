@@ -17,6 +17,7 @@ packages:
   - nmap
   - iperf3
   - dnf
+  - zstd
   - zsh
   - zsh-syntax-highlighting
   - btop
