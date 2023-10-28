@@ -37,6 +37,7 @@ packages:
   - tcpdump
   - sbsigntools
   # - kmod-wireguard
+  - boringtun-cli
   - wireguard-tools
   - zram-generator-defaults
   - openssh-askpass
@@ -79,6 +80,7 @@ packages-aarch64:
   - cloud-hypervisor
   - rust-hypervisor-firmware-bin
   - edk2-cloud-hypervisor
+  - kernel-cloud-hypervisor-guest
   - kata-containers
   - ceph
   - cephadm
@@ -89,6 +91,7 @@ packages-x86_64:
   - cloud-hypervisor
   - rust-hypervisor-firmware-bin
   - edk2-cloud-hypervisor
+  - kernel-cloud-hypervisor-guest
   - kata-containers
   - ceph
   - cephadm
@@ -160,9 +163,9 @@ repos:
   - centos-gluster10
   - centos-hyperscale
   - centos-nfsganesha-4
-  - rt
+  # - rt
   - resilientstorage
-  - epel-modular
+  # - epel-modular
   - epel
   - epel-next
   - ckoomen
