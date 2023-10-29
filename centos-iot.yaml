@@ -37,7 +37,7 @@ packages:
   - tcpdump
   - sbsigntools
   # - kmod-wireguard
-  - boringtun-cli
+  # - boringtun-cli
   - wireguard-tools
   - zram-generator-defaults
   - openssh-askpass
