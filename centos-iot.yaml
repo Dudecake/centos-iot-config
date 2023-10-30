@@ -59,7 +59,7 @@ packages:
   # - guestfs-tools
   # - python3-libguestfs
   # Kubernetes
-  # - chectl-bin
+  - chectl-bin
   - kubernetes-bin
   - helm-bin
   - iproute-tc
