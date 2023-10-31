@@ -127,7 +127,7 @@ modules:
     - perl-IO-Socket-SSL:2.066
     - perl-libwww-perl:6.34
     # - httpd:2.4
-    # - nodejs:10
+    - nodejs:18
     # - mod_auth_openidc
 
 units:
