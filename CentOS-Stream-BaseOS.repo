@@ -15,3 +15,4 @@ mirrorlist=http://mirrorlist.centos.org/?release=$releasever-stream&arch=$basear
 gpgcheck=1
 enabled=1
 gpgkey=https://www.centos.org/keys/RPM-GPG-KEY-CentOS-Official
+excludepkgs=kernel,kernel*-core,kernel-devel,kernel*-modules*
