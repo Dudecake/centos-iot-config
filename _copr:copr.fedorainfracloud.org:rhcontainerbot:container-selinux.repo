@@ -1,6 +1,6 @@
 [copr:copr.fedorainfracloud.org:rhcontainerbot:container-selinux]
 name=Copr repo for container-selinux owned by rhcontainerbot
-baseurl=https://download.copr.fedorainfracloud.org/results/rhcontainerbot/container-selinux/epel-8-$basearch/
+baseurl=https://download.copr.fedorainfracloud.org/results/rhcontainerbot/container-selinux/epel-$releasever-$basearch/
 type=rpm-md
 skip_if_unavailable=True
 gpgcheck=1

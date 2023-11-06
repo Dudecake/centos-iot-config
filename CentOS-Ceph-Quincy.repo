@@ -1,7 +1,12 @@
+# CentOS-Ceph-Quincy.repo
+#
+# Please see https://wiki.centos.org/SpecialInterestGroup/Storage for more
+# information
+
 [centos-ceph-quincy]
 name=CentOS-$releasever-stream - Ceph Quincy
-mirrorlist=http://mirrorlist.centos.org/?release=$releasever-stream&arch=$basearch&repo=storage-ceph-quincy
-#baseurl=http://mirror.centos.org/$contentdir/$releasever-stream/storage/$basearch/ceph-quincy/
-gpgcheck=1
+metalink=https://mirrors.centos.org/metalink?repo=centos-storage-sig-ceph-quincy-$releasever-stream&arch=$basearch
+#baseurl=http://mirror.stream.centos.org/SIGs/$releasever-stream/$basearch/storage-ceph-quincy/
+gpgcheck=0
 enabled=1
 gpgkey=https://www.centos.org/keys/RPM-GPG-KEY-CentOS-SIG-Storage

@@ -1,0 +1,11 @@
+# CentOS-Storage.repo
+#
+# Please see http://wiki.centos.org/SpecialInterestGroup/Storage for more
+# information
+
+[centos-storage-common]
+name=CentOS-$releasever - Storage SIG - common
+metalink=https://mirrors.centos.org/metalink?repo=centos-storage-sig-all-all-$releasever-stream&arch=$basearch
+gpgcheck=1
+enabled=0
+gpgkey=https://www.centos.org/keys/RPM-GPG-KEY-CentOS-SIG-Storage

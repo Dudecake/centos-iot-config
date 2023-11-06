@@ -4,9 +4,9 @@
 # information
 
 [centos-opstools]
-name=CentOS-OpsTools - collectd
-mirrorlist=http://mirrorlist.centos.org/?arch=$basearch&release=$releasever-stream&repo=opstools-collectd-5
-#baseurl=http://mirror.centos.org/centos/$releasever-stream/opstools/$basearch/collectd-5/
+name=CentOS Stream $releasever - OpsTools - collectd
+metalink=https://mirrors.centos.org/metalink?repo=centos-opstools-sig-collectd-5-$releasever-stream&arch=$basearch&protocol=https,http
+#baseurl=http://mirror.stream.centos.org/SIGs/$releasever-stream/opstools/$basearch/collectd-5/
 gpgcheck=1
 enabled=1
 skip_if_unavailable=1

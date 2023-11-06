@@ -21,7 +21,7 @@ packages:
   - dosfstools
   - gnupg2
   - basesystem
-  - python36
+  - python3
   - bash
   - xz
   - gzip
@@ -131,6 +131,5 @@ packages-x86_64:
   - iwl3160-firmware
   - iwl5000-firmware
   - iwl5150-firmware
-  - iwl6000-firmware
   - iwl6050-firmware
   - iwl7260-firmware

@@ -1,8 +1,8 @@
-ref: centos/8/${basearch}/ostree-base
+ref: centos/9/${basearch}/ostree-base
 
-automatic_version_prefix: "8"
-mutate-os-release: "8"
-releasever: "8"
+automatic_version_prefix: "9"
+mutate-os-release: "9"
+releasever: "9"
 
 include: centos-common-ostree-pkgs.yaml
 

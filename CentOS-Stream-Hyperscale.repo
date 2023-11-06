@@ -1,7 +1,9 @@
 [centos-hyperscale]
 name=CentOS Stream $releasever - Hyperscale
-mirrorlist=http://mirrorlist.centos.org/?release=$releasever-stream&arch=$basearch&repo=hyperscale-packages-main
-#baseurl=http://mirror.centos.org/centos/$releasever-stream/hyperscale/$basearch/packages-main/
+metalink=https://mirrors.centos.org/metalink?repo=centos-hyperscale-sig-packages-main-$releasever-stream&arch=$basearch&protocol=https,http
+#baseurl=http://mirror.stream.centos.org/SIGs/$releasever-stream/hyperscale/$basearch/packages-main/
 gpgcheck=1
+priority=50
 enabled=1
 gpgkey=https://www.centos.org/keys/RPM-GPG-KEY-CentOS-SIG-HyperScale
+excludepkgs=kernel,kernel*-core,kernel-devel,kernel*-modules*

@@ -1,0 +1,12 @@
+# CentOS-NFS-Ganesha-5.repo
+#
+# Please see https://wiki.centos.org/SpecialInterestGroup/Storage for more
+# information
+
+[centos-nfs-ganesha-5]
+name=CentOS-$releasever-stream - NFS-Ganesha 5
+metalink=https://mirrors.centos.org/metalink?repo=centos-storage-sig-nfsganesha-5-$releasever-stream&arch=$basearch
+#baseurl=http://mirror.stream.centos.org/SIGs/$releasever-stream/$basearch/storage-nfsganesha-5/
+gpgcheck=1
+enabled=1
+gpgkey=https://www.centos.org/keys/RPM-GPG-KEY-CentOS-SIG-Storage

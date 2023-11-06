@@ -31,7 +31,7 @@ fi
 cd ${DIR}
 rpm-ostree compose tree --repo="${DIST_PATH}" --cachedir="${CACHE_PATH}" "${DIR}/centos-iot.yaml" --unified-core
 if [[ -z "${NEW_REPO}" ]]; then
-  ostree --repo="${DIST_PATH}" prune --only-branch fedora/${FEDORA_VERSION}/${MACHINE}/${DIST_NAME} --depth=5
+  ostree --repo="${DIST_PATH}" prune --only-branch centos/${RELEASEVER}/${MACHINE}/${DIST_NAME} --depth=5
   ostree --repo="${DIST_PATH}" static-delta generate centos/${RELEASEVER}/${MACHINE}/${DIST_NAME}
 fi
 #ostree --repo="${DIST_PATH}" gpg-sign centos/${RELEASEVER}/${MACHINE}/${DIST_NAME} ${KEY}

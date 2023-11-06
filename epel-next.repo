@@ -1,9 +1,9 @@
 [epel-next]
-name=Extra Packages for Enterprise Linux 8 - Next - $basearch
+name=Extra Packages for Enterprise Linux $releasever - Next - $basearch
 # It is much more secure to use the metalink, but if you wish to use a local mirror
 # place its address here.
-#baseurl=https://download.example/pub/epel/next/8/Everything/$basearch/
-metalink=https://mirrors.fedoraproject.org/metalink?repo=epel-next-8&arch=$basearch&infra=$infra&content=$contentdir
+#baseurl=https://download.example/pub/epel/next/$releasever/Everything/$basearch/
+metalink=https://mirrors.fedoraproject.org/metalink?repo=epel-next-$releasever&arch=$basearch&infra=$infra&content=$contentdir
 enabled=1
 gpgcheck=1
 gpgkey=https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-$releasever

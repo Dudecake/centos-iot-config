@@ -1,0 +1,12 @@
+# CentOS-Gluster-11.repo
+#
+# Please see http://wiki.centos.org/SpecialInterestGroup/Storage for more
+# information
+
+[centos-gluster11]
+name=CentOS-$releasever-stream - Gluster 11
+metalink=https://mirrors.centos.org/metalink?repo=centos-storage-sig-gluster-11-$releasever-stream&arch=$basearch
+#baseurl=http://mirror.stream.centos.org/SIGs/$releasever-stream/storage/$basearch/gluster-11/
+gpgcheck=1
+enabled=1
+gpgkey=https://www.centos.org/keys/RPM-GPG-KEY-CentOS-SIG-Storage

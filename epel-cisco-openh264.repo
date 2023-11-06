@@ -1,0 +1,10 @@
+[epel-cisco-openh264]
+name=Extra Packages for Enterprise Linux $releasever openh264 (From Cisco) - $basearch
+metalink=https://mirrors.fedoraproject.org/metalink?repo=epel-cisco-openh264-$releasever&arch=$basearch
+type=rpm
+enabled=1
+metadata_expire=14d
+repo_gpgcheck=0
+gpgcheck=1
+gpgkey=https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-$releasever
+skip_if_unavailable=True

@@ -1,5 +1,5 @@
 include: centos-common-ostree.yaml
-ref: centos/8/${basearch}/iot
+ref: centos/9/${basearch}/iot
 rojig:
   name: centos-iot
   summary: "Centos IoT base image"
@@ -8,7 +8,7 @@ packages:
   - bsdtar
   - driverctl
   - iotop
-  - micro
+  # - micro
   - mlocate
   - mtr
   - net-tools
@@ -19,14 +19,13 @@ packages:
   - dnf
   - zstd
   - zsh
-  - zsh-syntax-highlighting
+  # - zsh-syntax-highlighting
   - btop
   - ckoomen-release
-  - centos-release-advanced-virtualization
   - centos-release-ceph-quincy
-  - centos-release-gluster10
+  - centos-release-gluster11
   - centos-release-hyperscale
-  - centos-release-nfs-ganesha4
+  - centos-release-nfs-ganesha5
   - centos-release-opstools
   # - centos-release-ovirt45
   - epel-release
@@ -35,11 +34,11 @@ packages:
   - keepalived
   - ncdu
   - tcpdump
-  - sbsigntools
+  # - sbsigntools
   # - kmod-wireguard
   # - boringtun-cli
   - wireguard-tools
-  - zram-generator-defaults
+  - zram-generator
   - openssh-askpass
   - osbuild-composer
   - flatpak-builder
@@ -81,10 +80,10 @@ packages-aarch64:
   - rust-hypervisor-firmware-bin
   - edk2-cloud-hypervisor
   - kernel-cloud-hypervisor-guest
-  - kata-containers
+  # - kata-containers
   - ceph
   - cephadm
-  - ceph-iscsi
+  # - ceph-iscsi
   - tcmu-runner
 packages-x86_64:
   - edk2-ovmf
@@ -92,10 +91,10 @@ packages-x86_64:
   - rust-hypervisor-firmware-bin
   - edk2-cloud-hypervisor
   - kernel-cloud-hypervisor-guest
-  - kata-containers
+  # - kata-containers
   - ceph
   - cephadm
-  - ceph-iscsi
+  # - ceph-iscsi
   - tcmu-runner
   # Ovirt
   # - ovirt-engine
@@ -109,26 +108,6 @@ packages-x86_64:
 
 exclude-packages:
   - zfs-dkms
-
-modules:
-  enable:
-    - python36:3.6
-    # - python38:3.8
-    - container-tools:rhel8
-    - idm:client
-    - ruby:2.5
-    - virt:rhel
-    # - postgresql:13
-    # - javapackages-tools:201801
-    # - pki-deps:10.6
-    - llvm-toolset:rhel8
-    # - maven:3.5
-    - perl:5.26
-    - perl-IO-Socket-SSL:2.066
-    - perl-libwww-perl:6.34
-    # - httpd:2.4
-    - nodejs:18
-    # - mod_auth_openidc
 
 units:
   - rpm-ostreed-automatic.timer
@@ -155,23 +134,22 @@ repos:
   # CentOS repos
   - appstream
   - baseos
-  - ha
-  - powertools
+  - crb
+  - highavailability
   - extras-common
-  - extras
   - centos-ceph-quincy
-  - centos-gluster10
+  - centos-gluster11
   - centos-hyperscale
-  - centos-nfsganesha-4
+  - centos-nfs-ganesha-5
   # - rt
   - resilientstorage
   # - epel-modular
   - epel
   - epel-next
   - ckoomen
-  - ceph-iscsi
+  - home_cloud-hypervisor
+  # - ceph-iscsi
   # OVirt
-  - centos-advanced-virtualization
   # - centos-ceph-pacific
   # - centos-nfv-openvswitch
   # - centos-ovirt45
@@ -182,8 +160,8 @@ repos:
   # Kubernetes
   # - copr:copr.fedorainfracloud.org:rhcontainerbot:container-selinux
   - devel_kubic_libcontainers_stable
-  - devel_kubic_libcontainers_stable_cri-o_1.25
-  - kata-containers
+  - devel_kubic_libcontainers_stable_cri-o_1.26
+  # - kata-containers
   - home_cloud-hypervisor
   # GPU support
   # - ROCm
