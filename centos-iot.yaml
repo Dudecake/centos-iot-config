@@ -60,6 +60,7 @@ packages:
   # Kubernetes
   - chectl-bin
   - kubernetes-bin
+  - containernetworking-plugins
   - helm-bin
   - iproute-tc
   - cri-o
