@@ -55,6 +55,8 @@ packages:
   - virt-top
   - libvirt
   - libvirt-daemon-kvm
+  - tftp-server
+  - ipxe-bootimgs
   # - guestfs-tools
   # - python3-libguestfs
   # Kubernetes
