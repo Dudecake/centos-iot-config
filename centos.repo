@@ -16,6 +16,7 @@ gpgcheck=1
 repo_gpgcheck=0
 metadata_expire=6h
 enabled=1
+excludepkgs=kernel,kernel*-core,kernel-devel,kernel*-modules*
 
 [crb]
 name=CentOS Stream $releasever - CRB
