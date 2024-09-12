@@ -73,6 +73,7 @@ packages:
   - glusterfs-server
   - glusterfs-ganesha
   - nfs-ganesha-gluster-5.7-3.el9s
+  - nfs-ganesha-proxy-v4-5.7-3.el9s
   - targetcli
   - target-isns
   - isns-utils
